@@ -74,6 +74,11 @@ public:
 					else {}
 
 				} while (komenda != "stop");
+				
+				if (komenda == "stop")
+				{
+					delete[] tablicaString;
+				}
 			}
 		}
 	}
@@ -223,7 +228,6 @@ public:
 	{
 		plik.close();
 		plik1.close();
-		delete[] tablicaString;
 	}
 
 };

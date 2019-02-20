@@ -1,4 +1,4 @@
-1
+2
 size 10
 add 13 ala
 print
@@ -8,8 +8,8 @@ add 33 ela
 print
 delete 23
 print
-delete 13
-delete 33
+stop
+size 10
 add 9 jola
 add 19 ala
 add 29 ela
