@@ -97,13 +97,33 @@ public:
 	void delete_()
 	{
 		plik >> klucz;
-		for (int i = 0; i < rozmiarTab; i++)
+		/*for (int i = 0; i < rozmiarTab; i++)
 		{
 			if (klucz == dajKlucz(i))
 			{
 				tablicaString[i] = "";
 			}
+		}*/
+		int stala= klucz % rozmiarTab;
+		int licznik = klucz % rozmiarTab;
+		while (klucz != dajKlucz(licznik)) 
+		{
+			std::cout << licznik;
+			if (licznik >= stala)
+			{
+				licznik++;
+				if (licznik-1 == rozmiarTab - 1) 
+				{
+					licznik = stala - 1;
+				}
+			}
+			else if (licznik < stala) 
+			{
+				licznik--;
+			}
 		}
+		
+		tablicaString[licznik] = "";
 
 		int zmiany = 1;
 
