@@ -8,4 +8,13 @@ add 33 ela
 print
 delete 13
 print
+delete 23
+delete 33
+add 9 jola
+add 19 ala
+add 29 ela
+add 39 fajna
+print
+delete 9
+print
 stop

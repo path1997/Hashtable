@@ -75,13 +75,12 @@ public:
 
 				} while (komenda != "stop");
 
-				if (komenda == "stop")
+				/*if (komenda == "stop")
 				{
 					delete[] tablicaString;
-				}
+				}*/
 			}
 		}
-
 	}
 
 	void size()
@@ -120,28 +119,19 @@ public:
 
 			for (int i = 0; i < rozmiarTab; i++)
 			{
-				if ((tablicaString[i] != "") && (i != (dajKlucz(i) % rozmiarTab)))
+				if (tablicaString[i - 1] == "" && (i > (dajKlucz(i) % rozmiarTab)))
 				{
-					int nowa = dajKlucz(i) % rozmiarTab;
-					if (tablicaString[nowa] == "")
-					{
-						tablicaString[nowa] = tablicaString[i];
-						tablicaString[i] = "";
-						zmiany++;
-					}
-					else if (tablicaString[i - 1] == "" && (i > (dajKlucz(i) % rozmiarTab)))
-					{
-						tablicaString[i-1] = tablicaString[i];
-						tablicaString[i] = "";
-						zmiany++;
-					}
-					else if (tablicaString[i + 1] == "" && (i < (dajKlucz(i) % rozmiarTab)))
-					{
-						tablicaString[i + 1] = tablicaString[i];
-						tablicaString[i] = "";
-						zmiany++;
-					}
+					tablicaString[i-1] = tablicaString[i];
+					tablicaString[i] = "";
+					zmiany++;
 				}
+				if (tablicaString[rozmiarTab-i + 1] == "" && (rozmiarTab-i < (dajKlucz(rozmiarTab-i) % rozmiarTab)))
+				{
+					tablicaString[rozmiarTab-i + 1] = tablicaString[rozmiarTab-i];
+					tablicaString[rozmiarTab-i] = "";
+					zmiany++;
+				}
+				
 			}
 		}
 	}
@@ -180,7 +170,7 @@ public:
 				}
 				if (znacznik == 1)
 				{
-					for (int i = licznik - 1; i <= 0; i--)
+					for (int i = licznik - 1; i >= 0; i--)
 					{
 						if (tablicaString[i] == "")
 						{
