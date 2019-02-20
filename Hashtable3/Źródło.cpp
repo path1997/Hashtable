@@ -74,11 +74,6 @@ public:
 					else {}
 
 				} while (komenda != "stop");
-
-				/*if (komenda == "stop")
-				{
-					delete[] tablicaString;
-				}*/
 			}
 		}
 	}

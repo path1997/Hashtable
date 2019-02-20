@@ -1,0 +1,21 @@
+3 13 ala
+
+3 13 ala
+4 23 ola
+
+3 13 ala
+4 23 ola
+5 33 ela
+
+3 13 ala
+4 33 ela
+
+6 39 fajna
+7 29 ela
+8 19 ala
+9 9 jola
+
+7 39 fajna
+8 29 ela
+9 9 jola
+
