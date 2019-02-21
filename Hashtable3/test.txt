@@ -3,6 +3,7 @@ size 10
 add 13 ala
 print
 add 23 ola
+add 23 ola
 print
 add 33 ela
 print
@@ -11,6 +12,7 @@ print
 stop
 size 10
 add 9 jola
+add 19 ala
 add 19 ala
 add 29 ela
 add 39 fajna

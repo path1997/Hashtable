@@ -87,10 +87,10 @@ public:
 	{
 		plik >> rozmiarTab;
 		tablicaString = new std::string[rozmiarTab];
-		for (int i = 0; i < rozmiarTab; i++)
+		/*for (int i = 0; i < rozmiarTab; i++)
 		{
 			tablicaString[i] = "";
-		}
+		}*/
 
 	}
 
@@ -190,12 +190,23 @@ public:
 						znacznik = 0;
 						break;
 					}
+					else if (klucz == dajKlucz(i)) 
+					{
+						tablicaString[i] = temp;
+						znacznik = 0;
+						break;
+					}
 				}
 				if (znacznik == 1)
 				{
 					for (int i = licznik - 1; i >= 0; i--)
 					{
 						if (tablicaString[i] == "")
+						{
+							tablicaString[i] = temp;
+							znacznik = 0;
+							break;
+						} else if (klucz == dajKlucz(i))
 						{
 							tablicaString[i] = temp;
 							znacznik = 0;
