@@ -15,6 +15,6 @@ add 19 ala
 add 29 ela
 add 39 fajna
 print
-delete 19
+delete 9
 print
 stop

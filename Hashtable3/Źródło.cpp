@@ -108,7 +108,6 @@ public:
 		int licznik = klucz % rozmiarTab;
 		while (klucz != dajKlucz(licznik)) 
 		{
-			std::cout << licznik;
 			if (licznik >= stala)
 			{
 				licznik++;
@@ -125,27 +124,31 @@ public:
 		
 		tablicaString[licznik] = "";
 
-		int zmiany = 1;
-
-		for (int i = 0; i < rozmiarTab; i++) {
+		int zmiany=1;
+		/*for (int j = 0; j < rozmiarTab; j++) {
 			if (zmiany == 0)
 			{
 				break;
+				std::cout << "stop";
 			}
 			else
 			{
 				zmiany = 0;
-			}
+			}*/
+			while(zmiany!=0)
+			{
+
+				zmiany = 0;
 
 			for (int i = 0; i < rozmiarTab; i++)
 			{
-				if (tablicaString[i - 1] == "" && (i > (dajKlucz(i) % rozmiarTab)))
+				if (tablicaString[i - 1] == "" && (i > (dajKlucz(i) % rozmiarTab)) && (tablicaString[i]!=""))
 				{
 					tablicaString[i-1] = tablicaString[i];
 					tablicaString[i] = "";
 					zmiany++;
 				}
-				if (tablicaString[rozmiarTab-i + 1] == "" && (rozmiarTab-i < (dajKlucz(rozmiarTab-i) % rozmiarTab)))
+				if (tablicaString[rozmiarTab-i + 1] == "" && (rozmiarTab-i < (dajKlucz(rozmiarTab-i) % rozmiarTab)) && (tablicaString[rozmiarTab - i] != ""))
 				{
 					tablicaString[rozmiarTab-i + 1] = tablicaString[rozmiarTab-i];
 					tablicaString[rozmiarTab-i] = "";
