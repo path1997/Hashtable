@@ -17,6 +17,8 @@ private:
 	std::string *tablicaString;
 	int iloscPrzypadkow;
 	int rozmiarTab;
+	int poczatek;
+	int koniec;
 
 public:
 	hashtable()
@@ -30,6 +32,8 @@ public:
 		tablicaString = NULL;
 		iloscPrzypadkow = 0;
 		rozmiarTab = 0;
+		poczatek = 0;
+		koniec = 0;
 	}
 
 	hashtable(std::string nazwa_pliku_odczyt, std::string nazwa_pliku_zapis)
@@ -91,6 +95,8 @@ public:
 		{
 			tablicaString[i] = "";
 		}*/
+		poczatek = rozmiarTab / 2;
+		koniec = rozmiarTab / 2;
 
 	}
 
@@ -178,6 +184,19 @@ public:
 			if (tablicaString[licznik] == "")
 			{
 				tablicaString[licznik] = temp;
+				if (poczatek==rozmiarTab/2 && koniec==rozmiarTab/2) {
+					poczatek = licznik;
+					koniec = licznik;
+					//std::cout << poczatek << " " << koniec << std::endl;
+				}
+				else if (poczatek > licznik) {
+					poczatek = licznik;
+					//std::cout << poczatek << " " << koniec << std::endl;
+				}
+				else if (koniec < licznik) {
+					koniec = licznik;
+					//std::cout << poczatek << " " << koniec << std::endl;
+				}
 			}
 			else
 			{
@@ -188,6 +207,10 @@ public:
 					{
 						tablicaString[i] = temp;
 						znacznik = 0;
+						if (koniec < i) {
+							koniec = i;
+							//std::cout << poczatek << " " << koniec << std::endl;
+						}
 						break;
 					}
 					else if (klucz == dajKlucz(i)) 
@@ -205,6 +228,10 @@ public:
 						{
 							tablicaString[i] = temp;
 							znacznik = 0;
+							if (poczatek > i) {
+								poczatek = i;
+								//std::cout << poczatek << " " << koniec << std::endl;
+							}
 							break;
 						} else if (klucz == dajKlucz(i))
 						{
@@ -229,7 +256,7 @@ public:
 
 	void print()
 	{
-		for (int i = 0; i < rozmiarTab; i++)
+		for (int i = poczatek; i <= koniec; i++)
 		{
 			if (tablicaString[i] != "")
 			{
